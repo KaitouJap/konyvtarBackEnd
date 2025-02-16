@@ -3,6 +3,7 @@ import { CreateBookDto } from './dto/create-book.dto';
 import { UpdateBookDto } from './dto/update-book.dto';
 import { PrismaService } from 'src/prisma.service';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
+import { Prisma } from '@prisma/client';
 
 @Injectable()
 export class BooksService {
@@ -16,8 +17,26 @@ export class BooksService {
     });
   }
 
-  findAll() {
+  findAll(){
     return this.db.book.findMany();
+  }
+
+  groupByPages(){
+    return this.db.book.groupBy({
+      by: ['pages'],
+      _count: {
+        _all: true
+      }
+    });
+  }
+
+  findAllWithOrder(
+    orderByField?: keyof Prisma.bookOrderByWithRelationInput,
+    orderDirection: 'asc' | 'desc' = 'asc'
+  ) {
+    return this.db.book.findMany({
+      orderBy: orderByField ? { [orderByField]: orderDirection} : undefined
+    });
   }
 
   findOne(id: number) {
