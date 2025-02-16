@@ -4,7 +4,7 @@
 
 1. **Clone the repository:**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/KaitouJap/konyvtarBackEnd.git
    cd konyvtarBackEnd
 
 2. **Install dependecies:**
