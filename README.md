@@ -23,13 +23,13 @@
   - Edit the .env file to set up the database connection string.
 
 6. **Push the Prisma scheme to the database:**
-  ```bash
-  npx prisma db push
+    ```bash
+    npx prisma db push
 
 7. **Seed the database:**
-  ```bash
-  npx prisma db seed
+    ```bash
+    npx prisma db seed
 
 8. **Start the development server:**
-  ```bash
-  npm run start:dev
+    ```bash
+    npm run start:dev
